@@ -83,19 +83,25 @@ function fixPath(thePath: string): string {
   return thePath.replace(/\\/g, '/');
 }
 
-function _getAllFiles(dirPath: string, recurse: boolean): FileObject[] {
-  var result: FileObject[] = [];
+function prependDelimiter(thePath: string): string {
+  if (thePath.startsWith('/')) return thePath;
+  return '/' + thePath;
+}
 
+function _getAllFiles(dirPath: string, recurse: boolean): FileObject[] {
+  // a place to store all the files
+  var result: FileObject[] = [];
+  // get all the files in the target folder
   var files = fs.readdirSync(dirPath)
+  // now process the file list
   files.forEach(function (file: string) {
     var newPath = path.join(dirPath, file);
     if (fs.statSync(newPath).isDirectory()) {
       if (recurse) result = _getAllFiles(newPath, recurse).concat(result);
     } else {
-      // newPath
       var theFile: FileObject = {
         name: fixPath(path.basename(newPath)),
-        path: fixPath(newPath),
+        path: prependDelimiter(fixPath(newPath)),
         extension: path.extname(newPath),
       }
       result.push(theFile);

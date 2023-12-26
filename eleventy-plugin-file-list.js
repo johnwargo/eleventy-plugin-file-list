@@ -56,6 +56,11 @@ module.exports = function (eleventyConfig, options = {}) {
 function fixPath(thePath) {
     return thePath.replace(/\\/g, '/');
 }
+function prependDelimiter(thePath) {
+    if (thePath.startsWith('/'))
+        return thePath;
+    return '/' + thePath;
+}
 function _getAllFiles(dirPath, recurse) {
     var result = [];
     var files = fs_extra_1.default.readdirSync(dirPath);
@@ -68,7 +73,7 @@ function _getAllFiles(dirPath, recurse) {
         else {
             var theFile = {
                 name: fixPath(path_1.default.basename(newPath)),
-                path: fixPath(newPath),
+                path: prependDelimiter(fixPath(newPath)),
                 extension: path_1.default.extname(newPath),
             };
             result.push(theFile);
