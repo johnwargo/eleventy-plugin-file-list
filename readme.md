@@ -2,6 +2,8 @@
 
 An Eleventy Plugin that creates a collection containing metadata from a list of all files in a specified folder.
 
+## Demonstration
+
 This repository contains a demo Eleventy site that demonstrations the plugin's capabilities. To run the demo, clone this repository to your local development system, then execute the following steps:
 
 1. Create a folder in the cloned project folder called `files`.
@@ -10,7 +12,7 @@ This repository contains a demo Eleventy site that demonstrations the plugin's c
 4. execute `npm install`
 5. execute `npm start`
 
-At this point, Eleventy will build the project and display a link you can click to view the sample page:
+At this point, Eleventy will build the project and display a link you can click to view the sample page (http://localhost:8080 as shown in the text below):
 
 ```shell
 D:\dev\11ty\eleventy-plugin-file-list>npm start
@@ -28,6 +30,7 @@ D:\dev\11ty\eleventy-plugin-file-list>npm start
 ```
 
 ![Sample App Page](images/image-01.png)
+
 
 ```typescript
 const configDefaults: ModuleOptions = {
