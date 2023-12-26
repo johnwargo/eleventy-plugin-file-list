@@ -1,7 +1,7 @@
 {
   "name": "eleventy-plugin-file-list",
   "version": "0.0.0",
-  "description": "Creates an Eleventy collection containing a list of files in a particular folder.",
+  "description": "Creates an Eleventy collection containing a list of files in a particular folder",
   "author": "John M. Wargo",
   "license": "MIT",
   "main": "eleventy-plugin-file-list.js",
