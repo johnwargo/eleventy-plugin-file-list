@@ -74,6 +74,40 @@ module.exports = eleventyConfig => {
 };
 ```
 
+## Rendering File Metadata
+
+The data collection created by the plugin is called `fileList` and it contains the following file properties:
+
+* name
+* extension: string;
+* path
+
+Here's a sample table created from the plugin's output:
+
+```liquid
+This page displays a table listing metadata for all files in the `files` folder.
+
+{% if collections.fileList.length > 0 %}
+  <p>Number of files: {{ collections.fileList.length }}</p>
+  <table>
+  <tr>
+    <th>Name</th>
+    <th>Extension</th>
+    <th>Path</th>
+  </tr>
+  {% for file in collections.fileList %}  
+    <tr>
+      <td><a href="{{ file.path }}" target="_blank">{{ file.name }}</a></td>
+      <td>{{ file.extension }}</td>
+      <td>{{ file.path }}</td>
+    </tr>
+  {% endfor %}
+</table>  
+{% else %}
+  <p>No file data to display</p>
+{% endif %}
+```
+
 ## Demonstration
 
 This repository contains a demo Eleventy site that demonstrations the plugin's capabilities. To run the demo, clone this repository to your local development system, then execute the following steps:
