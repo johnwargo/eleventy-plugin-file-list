@@ -1,6 +1,7 @@
 # Folders
 _site/
 files/
+images/
 node_modules/
 src/
 test/
@@ -11,3 +12,4 @@ ts-src/
 package-lock.json
 pub.mjs
 tsconfig.json
+eleventy.config.js
