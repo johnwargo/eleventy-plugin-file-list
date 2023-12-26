@@ -1,0 +1,30 @@
+{
+  "name": "eleventy-plugin-file-list",
+  "version": "0.0.0",
+  "description": "Creates an Eleventy collection containing a list of files in a particular folder.",
+  "author": "John M. Wargo",
+  "license": "MIT",
+  "main": "eleventy-plugin-file-list.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnwargo/eleventy-plugin-file-list"
+  },
+  "scripts": {
+    "test": "tsc && echo \"Launching test\" && node ./test/test.js && echo \"Test complete\"",
+    "start": "tsc && eleventy --serve",
+    "build": "tsc && eleventy"
+  },
+  "keywords": [
+    "Eleventy"
+  ],
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "cli-logger": "^0.5.40",
+    "fs-extra": "^11.2.0"
+  }
+}

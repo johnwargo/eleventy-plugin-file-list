@@ -1,0 +1,26 @@
+---
+layout: default
+title: Eleventy Display GitHub Repositories
+---
+
+This page displays a table listing all the files in the `files` folder.
+
+{% if collections.fileList.length > 0 %}
+  <p>Number of files: {{ collections.fileList.length }}</p>
+  <table>
+  <tr>
+    <th>Name</th>
+    <th>Extension</th>
+    <th>Path</th>
+  </tr>
+  {% for file in collections.fileList %}  
+    <tr>
+      <td>{{ file.name }}</td>
+      <td>{{ file.extension }}</td>
+      <td>{{ file.path }}</td>
+    </tr>
+  {% endfor %}
+</table>  
+{% else %}
+  <p>No file data to display</p>
+{% endif %}
