@@ -2,7 +2,16 @@
 
 An Eleventy Plugin that creates a collection containing metadata from a list of all files in a specified folder.
 
+This repository contains a demo Eleventy site that demonstrations the plugin's capabilities. To run the demo, clone this repository to your local development system, then execute the following steps:
 
+1. create a folder called `files`
+2. Copy some files into the newly created files folder
+3. open terminal window
+4. execute `npm install`
+5. execute `npm start`
+
+
+![Sample App Page](images/image-01.png)
 
 ```typescript
 const configDefaults: ModuleOptions = {
@@ -13,12 +22,6 @@ const configDefaults: ModuleOptions = {
 ```
 
 
-clone the folder
-create a folder called `files`
-Copy some files into the newly created files folder
-open terminal window
-execute `npm install`
-execute `npm start`
 
 
 ```js
