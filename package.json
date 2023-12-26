@@ -15,7 +15,8 @@
     "build": "tsc && eleventy"
   },
   "keywords": [
-    "Eleventy"
+    "Eleventy", 
+    "Files"
   ],
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
