@@ -9,7 +9,7 @@ Create a folder in your Eleventy project and populate it with the files you want
 Next, in your Eleventy project's `eleventy.config.js` file, import the plugin as shown below:
 
 ```js
-const fileList = require('/eleventy-plugin-file-list.js');
+const fileList = require('eleventy-plugin-file-list.js');
 ```
 
 Then, inside the `module.exports` section, load the plugin:
@@ -42,9 +42,16 @@ The plugin uses the following default values for omitted configuration options:
 * debugMode: false
 * doRecurse: false
 
+Ensure you pass through the contents of the folder:
 
 ```js
-const fileList = require('/eleventy-plugin-file-list.js');
+eleventyConfig.addPassthroughCopy('files/');
+```
+
+Here's a complete sample `eleventy.config.js` file:
+
+```js
+const fileList = require('eleventy-plugin-file-list.js');
 
 module.exports = eleventyConfig => {
 
@@ -66,7 +73,6 @@ module.exports = eleventyConfig => {
   }
 };
 ```
-
 
 ## Demonstration
 
@@ -96,7 +102,6 @@ D:\dev\11ty\eleventy-plugin-file-list>npm start
 ```
 
 ![Sample App Page](images/image-01.png)
-
 
 *** 
 
