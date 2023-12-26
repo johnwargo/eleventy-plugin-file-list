@@ -1,9 +1,12 @@
 # Eleventy Plugin File List
 
+An Eleventy Plugin that creates a collection or metadata from the list of files in a specified folder.
+
+
 
 
 clone the folder
-create a folder called files
+create a folder called `files`
 Copy some files into the newly created files folder
 open terminal window
 execute `npm install`
