@@ -4,21 +4,47 @@ An Eleventy Plugin that creates a collection containing metadata from a list of 
 
 ## Usage
 
+Create a folder in your Eleventy project and populate it with the files you want to serve using this plugin. 
 
+Next, in your Eleventy project's `eleventy.config.js` file, import the plugin as shown below:
 
-```typescript
-const configDefaults: ModuleOptions = {
-  targetFolder: 'files',
-  debugMode: false,
-  doRecurse: false,
-};
+```js
+const fileList = require('/eleventy-plugin-file-list.js');
 ```
 
+Then, inside the `module.exports` section, load the plugin:
 
+```js
+eleventyConfig.addPlugin(fileList, { targetFolder: 'files' });
+```
+
+If you don't specify a target folder, the plugin assumes `files`.
+
+```js
+eleventyConfig.addPlugin(fileList);
+```
+
+To have the plugin process the target folder recursively, load the plugin using the following:
+
+```js
+eleventyConfig.addPlugin(fileList, { targetFolder: 'files', doRecurse: true });
+```
+
+The plugin supports a debug mode which sends additional information to the console during the build process. To enable debug mode, load the plugin with `debugMode` set to `true`
+
+```js
+eleventyConfig.addPlugin(fileList, { targetFolder: 'files', debugMode: true });
+```
+
+The plugin uses the following default values for omitted configuration options:
+
+* targetFolder: 'files'
+* debugMode: false
+* doRecurse: false
 
 
 ```js
-const fileList = require('./eleventy-plugin-file-list.js');
+const fileList = require('/eleventy-plugin-file-list.js');
 
 module.exports = eleventyConfig => {
 
