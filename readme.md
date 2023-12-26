@@ -24,13 +24,13 @@ If you don't specify a target folder, the plugin assumes `files`.
 eleventyConfig.addPlugin(fileList);
 ```
 
-To have the plugin process the target folder recursively, load the plugin using the following:
+To have the plugin process the target folder recursively, enable `doRecurse` when you load the plugin:
 
 ```js
 eleventyConfig.addPlugin(fileList, { targetFolder: 'files', doRecurse: true });
 ```
 
-The plugin supports a debug mode which sends additional information to the console during the build process. To enable debug mode, load the plugin with `debugMode` set to `true`
+The plugin supports a debug mode which sends additional information to the console during the build process. To enable debug mode, load the plugin with `debugMode` set to `true`:
 
 ```js
 eleventyConfig.addPlugin(fileList, { targetFolder: 'files', debugMode: true });
