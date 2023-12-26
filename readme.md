@@ -1,6 +1,6 @@
-# Eleventy Plugin GitHub Repositories
+# Eleventy Plugin File List
 
-Does not work since plugins can't be async
+
 
 *** 
 

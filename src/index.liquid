@@ -15,7 +15,7 @@ This page displays a table listing metadata for all files in the `files` folder.
   </tr>
   {% for file in collections.fileList %}  
     <tr>
-      <td>{{ file.name }}</td>
+      <td><a href="{{ file.path }}" target="_blank">{{ file.name }}</a></td>
       <td>{{ file.extension }}</td>
       <td>{{ file.path }}</td>
     </tr>

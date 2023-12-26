@@ -9,9 +9,7 @@ import path from 'path';
 type FileObject = {
   name: string;
   path: string;
-  size?: number;
   extension: string;
-  isSymbolicLink?: boolean;
 }
 
 type ModuleOptions = {
@@ -89,11 +87,8 @@ function prependDelimiter(thePath: string): string {
 }
 
 function _getAllFiles(dirPath: string, recurse: boolean): FileObject[] {
-  // a place to store all the files
   var result: FileObject[] = [];
-  // get all the files in the target folder
   var files = fs.readdirSync(dirPath)
-  // now process the file list
   files.forEach(function (file: string) {
     var newPath = path.join(dirPath, file);
     if (fs.statSync(newPath).isDirectory()) {

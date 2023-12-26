@@ -9,6 +9,7 @@ module.exports = eleventyConfig => {
   // eleventyConfig.addPlugin(fileList, {targetFolder: 'files', doRecurse: true, debugMode});
 
   eleventyConfig.addPassthroughCopy('src/assets/');
+  eleventyConfig.addPassthroughCopy('files/');
 
   return {
     dir: {
