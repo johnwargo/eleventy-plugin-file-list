@@ -3,10 +3,8 @@ const fileList = require('./eleventy-plugin-file-list.js');
 module.exports = eleventyConfig => {
 
   const debugMode = false;
-  // eleventyConfig.addPlugin(fileList, { debugMode });
-  eleventyConfig.addPlugin(fileList, { targetFolder: 'files', debugMode });
-  // eleventyConfig.addPlugin(fileList, {targetFolder: 'files', doRecurse: false, debugMode});
-  // eleventyConfig.addPlugin(fileList, {targetFolder: 'files', doRecurse: true, debugMode});
+  const doRecurse = false;
+  eleventyConfig.addPlugin(fileList, { targetFolder: 'files', debugMode, doRecurse });
 
   eleventyConfig.addPassthroughCopy('src/assets/');
   eleventyConfig.addPassthroughCopy('files/');

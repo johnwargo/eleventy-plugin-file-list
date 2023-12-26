@@ -1,8 +1,16 @@
 # Eleventy Plugin File List
 
-An Eleventy Plugin that creates a collection or metadata from the list of files in a specified folder.
+An Eleventy Plugin that creates a collection containing metadata from a list of all files in a specified folder.
 
 
+
+```typescript
+const configDefaults: ModuleOptions = {
+  targetFolder: 'files',
+  debugMode: false,
+  doRecurse: false,
+};
+```
 
 
 clone the folder
@@ -12,6 +20,30 @@ open terminal window
 execute `npm install`
 execute `npm start`
 
+
+```js
+const fileList = require('./eleventy-plugin-file-list.js');
+
+module.exports = eleventyConfig => {
+
+  const debugMode = false;
+  const doRecurse = false;
+  eleventyConfig.addPlugin(fileList, { targetFolder: 'files', debugMode, doRecurse });
+
+  eleventyConfig.addPassthroughCopy('src/assets/');
+  eleventyConfig.addPassthroughCopy('files/');
+
+  return {
+    dir: {
+      input: 'src',
+      output: '_site',
+      includes: '_includes',
+      layouts: '_layouts',
+      data: '_data'
+    }
+  }
+};
+```
 
 *** 
 
