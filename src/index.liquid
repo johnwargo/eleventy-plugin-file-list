@@ -21,9 +21,9 @@ This page displays a table listing metadata for all files in the `files` folder.
       <td><a href="{{ file.path }}" target="_blank">{{ file.name }}</a></td>
       <td>{{ file.extension }}</td>
       <td>{{ file.path }}</td>
-      <td>{{ file.size }} bytes</td>
-      <td>{{ file.created }}</td>
-      <td>{{ file.modified }}</td>
+      <td>{{ file.fileSize | commaize }} bytes</td>
+      <td>{{ file.created | dateOnly }}</td>
+      <td>{{ file.modified | dateOnly }}</td>
     </tr>
   {% endfor %}
 </table>  

@@ -67,7 +67,7 @@ module.exports = function (eleventyConfig: any, options: ModuleOptions = {}) {
     log.info(`Building file list from the projects's "${config.targetFolder}" folder`);
     console.time(durationStr);
     try {
-      result = _getAllFiles(config.targetFolder, config.doRecurse!);
+      result = _getAllFiles(config.targetFolder, config.doRecurse!, config.debugMode!);
     } catch (err) {
       log.error(`Error building file list: ${err}`);
       process.exit(1);
@@ -89,16 +89,17 @@ function prependDelimiter(thePath: string): string {
   return '/' + thePath;
 }
 
-function _getAllFiles(dirPath: string, recurse: boolean): FileObject[] {
+function _getAllFiles(dirPath: string, recurse: boolean, debugMode: boolean): FileObject[] {
   var stats: fs.Stats;
   var result: FileObject[] = [];
   var files = fs.readdirSync(dirPath)
   files.forEach(function (file: string) {
     var newPath = path.join(dirPath, file);
     if (fs.statSync(newPath).isDirectory()) {
-      if (recurse) result = _getAllFiles(newPath, recurse).concat(result);
+      if (recurse) result = _getAllFiles(newPath, recurse, debugMode).concat(result);
     } else {
       stats = fs.statSync(newPath);
+      if (debugMode) console.dir(stats);
       var theFile: FileObject = {
         name: fixPath(path.basename(newPath)),
         path: prependDelimiter(fixPath(newPath)),
