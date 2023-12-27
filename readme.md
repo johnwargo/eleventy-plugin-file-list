@@ -8,6 +8,12 @@ https://www.npmjs.com/package/eleventy-plugin-file-list
 
 Create a folder in your Eleventy project and populate it with the files you want to serve using this plugin. 
 
+Install the plugin by opening a terminal window or command prompt, navigating to an Eleventy project folder, and executing the following command:
+
+```shell
+npm install eleventy-plugin-file-list
+```
+
 Next, in your Eleventy project's `eleventy.config.js` file, import the plugin as shown below:
 
 ```js
