@@ -78,9 +78,12 @@ module.exports = eleventyConfig => {
 
 The data collection created by the plugin is called `fileList` and it contains the following file properties:
 
-* name
-* extension: string;
-* path
+* `name`
+* `extension`
+* `path`
+* `fileSize`: File size in bytes
+* `created`: Create date
+* `modified`: Modified date
 
 Here's a sample table created from the plugin's output:
 
