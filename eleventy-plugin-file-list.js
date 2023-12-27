@@ -71,10 +71,14 @@ function _getAllFiles(dirPath, recurse) {
                 result = _getAllFiles(newPath, recurse).concat(result);
         }
         else {
+            var stats = fs_extra_1.default.statSync(newPath);
             var theFile = {
                 name: fixPath(path_1.default.basename(newPath)),
                 path: prependDelimiter(fixPath(newPath)),
                 extension: path_1.default.extname(newPath),
+                fileSize: stats.size,
+                created: stats.ctime,
+                modified: stats.mtime
             };
             result.push(theFile);
         }

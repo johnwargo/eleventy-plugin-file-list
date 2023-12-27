@@ -4,12 +4,15 @@ import fs from 'fs-extra';
 import path from 'path';
 
 // TODO: save file list as data file, let user add description
-// TODO: test recurse option
+// TODO: file stats (size, date, etc.)
 
 type FileObject = {
   name: string;
   path: string;
   extension: string;
+  fileSize?: number;
+  created?: Date;
+  modified?: Date;
 }
 
 type ModuleOptions = {
@@ -94,10 +97,14 @@ function _getAllFiles(dirPath: string, recurse: boolean): FileObject[] {
     if (fs.statSync(newPath).isDirectory()) {
       if (recurse) result = _getAllFiles(newPath, recurse).concat(result);
     } else {
+      var stats = fs.statSync(newPath);
       var theFile: FileObject = {
         name: fixPath(path.basename(newPath)),
         path: prependDelimiter(fixPath(newPath)),
         extension: path.extname(newPath),
+        fileSize: stats.size,
+        created: stats.ctime,
+        modified: stats.mtime
       }
       result.push(theFile);
     }

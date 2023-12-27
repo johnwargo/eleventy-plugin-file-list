@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Eleventy Display GitHub Repositories
+title: Eleventy List Files
 ---
 
 This page displays a table listing metadata for all files in the `files` folder.
@@ -12,12 +12,18 @@ This page displays a table listing metadata for all files in the `files` folder.
     <th>Name</th>
     <th>Extension</th>
     <th>Path</th>
+    <th>Size</th>
+    <th>Created</th>
+    <th>Modified</th>
   </tr>
   {% for file in collections.fileList %}  
     <tr>
       <td><a href="{{ file.path }}" target="_blank">{{ file.name }}</a></td>
       <td>{{ file.extension }}</td>
       <td>{{ file.path }}</td>
+      <td>{{ file.size }} bytes</td>
+      <td>{{ file.created }}</td>
+      <td>{{ file.modified }}</td>
     </tr>
   {% endfor %}
 </table>  
