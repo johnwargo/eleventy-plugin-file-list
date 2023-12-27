@@ -6,9 +6,6 @@ module.exports = eleventyConfig => {
   const doRecurse = false;
   eleventyConfig.addPlugin(fileList, { targetFolder: 'files', debugMode, doRecurse });
 
-  eleventyConfig.addPassthroughCopy('src/assets/');
-  eleventyConfig.addPassthroughCopy('files/');
-
   eleventyConfig.addFilter("commaize", function (num, locale = "en-us") {
 		return num.toLocaleString(locale);
 	});
@@ -18,6 +15,9 @@ module.exports = eleventyConfig => {
 		const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 		return theDate.toLocaleDateString(locale, options);
 	});
+
+  eleventyConfig.addPassthroughCopy('src/assets/');
+  eleventyConfig.addPassthroughCopy('files/');
 
   return {
     dir: {

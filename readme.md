@@ -17,7 +17,7 @@ npm install eleventy-plugin-file-list
 Next, in your Eleventy project's `eleventy.config.js` file, import the plugin as shown below:
 
 ```js
-const fileList = require('eleventy-plugin-file-list.js');
+const fileList = require('eleventy-plugin-file-list');
 ```
 
 Then, inside the `module.exports` section, load the plugin:

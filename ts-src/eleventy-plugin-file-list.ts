@@ -22,7 +22,6 @@ type ModuleOptions = {
 }
 
 module.exports = function (eleventyConfig: any, options: ModuleOptions = {}) {
-
   eleventyConfig.addCollection('fileList', async (collectionApi: any) => {
 
     const configDefaults: ModuleOptions = {
