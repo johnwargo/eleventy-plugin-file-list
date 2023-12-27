@@ -90,6 +90,7 @@ function prependDelimiter(thePath: string): string {
 }
 
 function _getAllFiles(dirPath: string, recurse: boolean): FileObject[] {
+  var stats: fs.Stats;
   var result: FileObject[] = [];
   var files = fs.readdirSync(dirPath)
   files.forEach(function (file: string) {
@@ -97,7 +98,7 @@ function _getAllFiles(dirPath: string, recurse: boolean): FileObject[] {
     if (fs.statSync(newPath).isDirectory()) {
       if (recurse) result = _getAllFiles(newPath, recurse).concat(result);
     } else {
-      var stats = fs.statSync(newPath);
+      stats = fs.statSync(newPath);
       var theFile: FileObject = {
         name: fixPath(path.basename(newPath)),
         path: prependDelimiter(fixPath(newPath)),

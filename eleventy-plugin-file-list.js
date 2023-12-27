@@ -62,6 +62,7 @@ function prependDelimiter(thePath) {
     return '/' + thePath;
 }
 function _getAllFiles(dirPath, recurse) {
+    var stats;
     var result = [];
     var files = fs_extra_1.default.readdirSync(dirPath);
     files.forEach(function (file) {
@@ -71,7 +72,7 @@ function _getAllFiles(dirPath, recurse) {
                 result = _getAllFiles(newPath, recurse).concat(result);
         }
         else {
-            var stats = fs_extra_1.default.statSync(newPath);
+            stats = fs_extra_1.default.statSync(newPath);
             var theFile = {
                 name: fixPath(path_1.default.basename(newPath)),
                 path: prependDelimiter(fixPath(newPath)),
