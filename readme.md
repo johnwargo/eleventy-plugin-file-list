@@ -2,6 +2,8 @@
 
 An Eleventy Plugin that creates a collection containing metadata from a list of all files in a specified folder.
 
+https://www.npmjs.com/package/eleventy-plugin-file-list
+
 ## Usage
 
 Create a folder in your Eleventy project and populate it with the files you want to serve using this plugin. 
